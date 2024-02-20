@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="text-align: center;">Heart Disease Prediction Results</h2>
+
+  <div style="text-align: center; font-size: 1.5em;"> <!-- Center align and increase font size -->
+    {% if prediction_rf is not None %}
+      <p><strong>{{ prediction_rf }}</strong></p>
+    {% else %}
+      <p>No predictions available.</p>
+    {% endif %}
+  </div>
+
+  <p style="text-align: center;"><a href="{% url 'predict_heart_disease' %}">Go back to input form</a></p>
+
+{% endblock %}

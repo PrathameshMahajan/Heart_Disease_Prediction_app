@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Enter Heart Disease Prediction Data</h2>
+<form method="post" action="{% url 'predict_heart_disease' %}" style="text-align: center;">
+    {% csrf_token %}
+
+    <div style="display: grid; grid-template-columns: max-content 1fr; gap: 15px; align-items: center;"> <!-- Use grid for a two-column layout -->
+      <label for="age">Age:</label>
+      <input type="text" name="age" style="width: 100px;" required>
+
+      <label for="sex">Sex: Values - 1 = male, 0 = female</label>
+      <input type="text" name="sex" style="width: 100px;" required>
+
+      <label for="cp">Chest Pain Type (CP): 1-typical angina, 2-atypical angina, 3-non-anginal pain, 4-asymptomatic</label>
+      <input type="text" name="cp" style="width: 100px;" required>
+
+      <label for="trestbps">Resting Blood Pressure (trestbps): BP in mmHg</label>
+      <input type="text" name="trestbps" style="width: 100px;" required>
+
+      <label for="chol">Cholesterol (chol): Serum cholestoral in mg/dl</label>
+      <input type="text" name="chol" style="width: 100px;" required>
+
+      <label for="fbs">Fasting Blood Sugar (fbs): value - 1 for <120 mg/dl and 0 for >120mg/dl</label>
+      <input type="text" name="fbs" style="width: 100px;" required>
+
+      <label for="restecg">Resting Electrocardiographic Results (restecg): Values 0 = Normal, 1 = Abnormal, 2 = Hyper</label>
+      <input type="text" name="restecg" style="width: 100px;" required>
+
+      <label for="thalach">Maximum Heart Rate Achieved (thalach): Values - 71 to 202</label>
+      <input type="text" name="thalach" style="width: 100px;" required>
+
+      <label for="exang">Exercise Induced Angina (exang): Values - 1 = pain and 0 = no pain</label>
+      <input type="text" name="exang" style="width: 100px;" required>
+
+      <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest (oldpeak): Values 0 to 6.2</label>
+      <input type="text" name="oldpeak" style="width: 100px;" required>
+
+      <label for="slope">Slope of the Peak Exercise ST Segment (slope): Values - 0 = Up, 1 = Flat, 2 = Down</label>
+      <input type="text" name="slope" style="width: 100px;" required>
+
+      <label for="ca">Number of Major Vessels Colored by Fluoroscopy (ca): Values 0-3</label>
+      <input type="text" name="ca" style="width: 100px;" required>
+
+      <label for="thal">Thalassemia (thal): 3 = normal; 6 = fixed defect; 7 = reversable defect</label>
+      <input type="text" name="thal" style="width: 100px;" required>
+    </div>
+
+      <button type="submit" style="margin-top: 10px;">Predict</button>
+  </form>
+
+{% endblock %}
